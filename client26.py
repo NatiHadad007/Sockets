@@ -28,13 +28,14 @@ def main():
     user_command = input("What is your command? ")
 
     # please lookup error handeling, i want you to cover errors that might happen for both those lines
+    # imma kick you in the butt if you send 2 packets instead of one just coupled with the information
     my_socket.send(name.encode())
     my_socket.send(user_command.encode())
 
     # what is that 1024 stands for
     data = my_socket.recv(1024).decode()
 
-    #nice line i like
+    #please use f"", its called a strings format, look it up
     print("The server sent " + data)
 
     # Pro Tip people usually close it twice or make sure its closed by checking state, find out how
