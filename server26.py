@@ -9,11 +9,13 @@ import subprocess
 # Also dont use this variable, if anything create a variable that is that file path and a dictionary of options to preform on it
 del_cmd = r"DELETE C:\Cyber\blabla.txt"
 
-# please split functionalities in this function into fregments, each function should only preform one task, this function preforms several
+
+# this is a bad name it doesnt check the request its handeling the request!
 def check_client_request(cmd):
     #add a docstring
 
     #u already import os, theres a way to do it using os, use it, and find a better name then files lis (what files?)
+    # if i ever see glob anywhere near your code im gonna come to your house to punch you in the face, i know where u live <3
     files_list = glob.glob(r"C:\Cyber\*.*")
 
     # come back to me with a solution of what will u do if u had 1000 cases to take care of, would you create 1000 elif?
@@ -24,16 +26,20 @@ def check_client_request(cmd):
             os.remove(files)
         print("delete files")
     elif cmd == "COPY":
+            # OS lib has a functionality for this i think, dont use extra libs for nothing
             shutil.copy(r"C:\Cyber\1.txt", r"C:\Cyber\2.txt")
+            # im the only one allowed here to use bad english, fix this
             print("C:\Cyber\1.txt copy to C:\Cyber\2.txt")
     elif cmd == "EXECUTE":
+            # theres a functionality for this in OS too, please use it
             subprocess.call(r'C:\Windows\system32\notepad.exe')
             print("open notepad.exe")
     else:
+        # not deleted?
         print("not deleted")
         client_socket.close()
 
-
+# please split functionalities in this space underneath into fregments, each function should only preform one task, this part is just a global mess
 # why is this all outside a function? create a main function and an if __name__ thingy
 # apply what i said in the client side about this parts
 # atleast in here you named it fine <3
